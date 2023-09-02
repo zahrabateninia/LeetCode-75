@@ -6,15 +6,15 @@ Given two strings str1 and str2, return the largest string x such that x divides
 """
 str1 = input("Enter the first string: ")
 str2 = input("Enter the second string: ")
-i = 0
-newStr = ''
-if not str1[0] == str2[0]:
-    print("")
-else:
-    for letter in str1:
-        if (i < len(str2)):
-            if letter == str2[i]:
-                i += 1
-        else:
-            newStr = str1[i:]
-    print(newStr)
+def gcdOfStrings(str1, str2):
+        if str1 + str2 != str2 + str1:
+            return ""
+        if len(str1) == len(str2):
+            return str1
+        if len(str1) > len(str2):
+            return gcdOfStrings(str1[len(str2):], str2)
+        return gcdOfStrings(str1, str2[len(str1):])
+
+
+print(gcdOfStrings(str1,str2))
+
