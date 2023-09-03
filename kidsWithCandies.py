@@ -8,17 +8,12 @@ after giving the ith kid all the extraCandies, they will have the greatest
 number of candies among all the kids, or false otherwise.
 
 Note that multiple kids can have the greatest number of candies.
-"""
-candies = [2,3,5,1,3]
-extraCandies = 3
-i = 0
-result = []
 
-for kid in candies:
-    withExtraCandies = candies[i] + extraCandies  
-    if withExtraCandies < max(candies):
-        result += [False]
-    else:
-        result += [True]
-    i += 1
-print(result)
+"""
+candies = [2,4,4,9,1]
+extraCandies = 3
+maxNumCandies = max(candies)
+for idx, candy in enumerate(candies):
+    canHaveMaxCandies = (candy + extraCandies) >= maxNumCandies
+    candies[idx] = canHaveMaxCandies
+print(candies)
