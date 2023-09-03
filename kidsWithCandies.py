@@ -12,8 +12,13 @@ Note that multiple kids can have the greatest number of candies.
 candies = [2,3,5,1,3]
 extraCandies = 3
 i = 0
+result = []
 
 for kid in candies:
-    candies[i] = kid + extraCandies
+    withExtraCandies = candies[i] + extraCandies  
+    if withExtraCandies < max(candies):
+        result += [False]
+    else:
+        result += [True]
     i += 1
-print(candies)
+print(result)
