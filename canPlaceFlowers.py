@@ -9,21 +9,22 @@ return true if n new flowers can be planted in the flowerbed
 without violating the no-adjacent-flowers rule and false otherwise.
 
 """
-flowerbed = [1,0,1,0,1]
-numOfFlowers = 1
-numOfPlantedFlowers = 0
 
-def canPlantFlowers(flowerbed):
+def canPlaceFlowers(flowerbed: List[int], n: int) -> bool:
+    numOfPlantedFlowers = 0
+
     i = 0
-    global numOfPlantedFlowers
+    numOfPlantedFlowers = 0
     for flower in flowerbed:
-        if flower == 0 and (flowerbed[i + 1] == 0)  and (flowerbed[i - 1] == 0): 
+        if flower == 0 and (flowerbed[i + 1] == 0) and (flowerbed[i - 1] == 0): 
+            flowerbed[i] = 1
             numOfPlantedFlowers += 1
         i += 1
-    if numOfPlantedFlowers < numOfFlowers:
-        print(False)
+    if numOfPlantedFlowers < n:
+        return(False)
     else:
-        print(True)
+        return(True)
 
-canPlantFlowers(flowerbed)
 
+
+        
