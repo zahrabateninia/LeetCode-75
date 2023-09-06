@@ -11,7 +11,11 @@ vowelsOfS= []
 for letter in s:
     for vowel in vowels:
         if vowel == letter:
-            vowelsOfS += letter
-print(vowelsOfS)
+            vowelsOfS.append(letter)
+# imp: The reverse() method doesn't return any value. It updates the existing list.
+
+reverseVowels = vowelsOfS.copy()
+reverseVowels.reverse()
+print(reverseVowels)
 
 
