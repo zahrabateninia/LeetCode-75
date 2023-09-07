@@ -15,8 +15,5 @@ for word in words:
         continue
     noSpaceWords.append(word)
 
-print(noSpaceWords)
-
-# reversedL = listOfS.copy()
-# reversedL = reversedL.reverse()
-# print(reversedL)
+noSpaceWords.reverse()
+print(" ".join(noSpaceWords))
