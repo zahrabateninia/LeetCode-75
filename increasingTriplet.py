@@ -8,8 +8,15 @@ class Solution:
         length = len(nums)
 
         if length >= 3:
-            for i in range(length - 2):
-                if nums[i] < nums[i + 1] and nums[i + 1] < nums[i + 2]:
+            smallest = float('inf')
+            second_smallest = float('inf')
+            
+            for num in nums:
+                if num <= smallest:
+                    smallest = num
+                elif num <= second_smallest:
+                    second_smallest = num
+                else:
                     return True
                     break
             else:
