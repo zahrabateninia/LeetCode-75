@@ -8,12 +8,13 @@ of "abcde" while "aec" is not).
 """
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        for letter in s:
-            if letter == s[-1] and letter in t:
-                    return True
+        s_ptr = 0  # Pointer for string s
+        t_ptr = 0  # Pointer for string t
 
-            if letter in t:
-                continue
-            else:
-                    return False
-                  
+        while s_ptr < len(s) and t_ptr < len(t):
+            # Check if the characters at the pointers match
+            if s[s_ptr] == t[t_ptr]:
+                s_ptr += 1  # Move the pointer for s if there's a match
+            t_ptr += 1  # Always move the pointer for t
+
+        return s_ptr == len(s)  # If s_ptr reached the end of s, it's a subsequence
