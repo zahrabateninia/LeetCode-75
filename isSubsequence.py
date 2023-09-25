@@ -16,4 +16,4 @@ class Solution:
                 continue
             else:
                     return False
-                    break
+                  
