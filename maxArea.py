@@ -7,25 +7,24 @@ such that the container contains the most water.
 Return the maximum amount of water a container can store.
 Notice that you may not slant the container.
 """
-height = [1,8,6,2,5,4,8,3,7]
 def maxArea(height) -> int:
-            max_area = 0
-            n = len(height)
-            
-            for i in range(n):
-               fixed_side_ptr = height[i]
-                
-               for j in range(i+1, n):
-                     current_side_ptr = height[j]
-                    
-                     # Smaller number should be considered as height:
-                     h = min(fixed_side_ptr, current_side_ptr)
-                     w = j - i
-                    
-                     area = h * w
-                    
-                     max_area = max(max_area, area)
-            
-            return max_area
+    max_area = 0
+    left = 0
+    right = len(height) - 1
+    
+    while left < right:
+        h = min(height[left], height[right])
+        w = right - left
+        area = h * w
+        max_area = max(max_area, area)
+        
+        if height[left] < height[right]:
+            left += 1
+        else:
+            right -= 1
+    
+    return max_area
 
-print(maxArea(height))
+height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+result = maxArea(height)
+print(result)
