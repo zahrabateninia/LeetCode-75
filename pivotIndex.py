@@ -9,11 +9,14 @@ no elements to the left. This also applies to the right edge of the array.
 Return the leftmost pivot index. If no such index exists, return -1
 """
 def pivotIndex(nums) -> int:
-    totalSum = 0
+    totalSum = sum(nums)
     leftSum = 0
     for i,num in enumerate(nums):
         rightSum = totalSum - leftSum - num 
+        if leftSum == rightSum:
+            return i
 
 
 nums = [1,7,3,6,5,6]
 print(pivotIndex(nums))
+ 
