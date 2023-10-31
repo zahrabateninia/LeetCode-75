@@ -15,6 +15,8 @@ def pivotIndex(nums) -> int:
         rightSum = totalSum - leftSum - num 
         if leftSum == rightSum:
             return i
+        leftSum += num
+    return -1
 
 
 nums = [1,7,3,6,5,6]
