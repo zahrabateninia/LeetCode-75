@@ -18,7 +18,9 @@ def longestSubarray(self, nums: List[int]) -> int:
                 if nums[left] == 0:
                     zero_count -= 1
                 left += 1
-
+            current_length = right -left +1 - zero_count
+            max_length = max(max_length, current_length)
+        return max_length - 1 if max_length == length else max_length
 
             
         
