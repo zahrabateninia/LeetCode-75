@@ -7,5 +7,13 @@ Note that the integers in the lists may be returned in any order.
 """
 
 def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
-    
+    answer1 = []
+    answer2 = []
+    for num in nums1:
+        if num not in nums2:
+            answer1.append(num)
+    for num in nums2:
+        if num not in nums1:
+            answer2.append(num)
+    return [set(answer1), set(answer2)]
         
