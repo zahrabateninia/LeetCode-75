@@ -5,12 +5,10 @@
 # Note that the integers in the lists may be returned in any order.
 
 def findDifference(nums1, nums2):
-        answer1 = []
-        answer2 = []
-        for num in nums1:
-            if num not in nums2:
-                answer1.append(num)
-        for num in nums2:
-            if num not in nums1:
-                answer2.append(num)
-        return [set(answer1), set(answer2)]
+    set1= set(nums1)
+    set2= set(nums2)
+
+    answer1= list(set1 - set2)
+    answer2= list(set2 - set1)
+    
+    return [answer1, answer2]
