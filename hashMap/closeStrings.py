@@ -20,13 +20,15 @@ def countOccurrenceOfLetters(word):
 
 def closeStrings(word1: str, word2: str) -> bool:
     # if their lengths aren't the same return false
-    if len(word1 != word2): return False
+    if len(word1) != len(word2):
+         return False
 
     freqWord1Dict = countOccurrenceOfLetters(word1)
     freqWord2Dict = countOccurrenceOfLetters(word2)
 
-    # compare the values of these two dictionaries 
-    
+    return set(freqWord1Dict) == set(freqWord2Dict)
+
+  
 
 
 
