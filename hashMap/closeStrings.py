@@ -9,26 +9,30 @@
 # Given two strings, word1 and word2, return true if word1 and word2 are close, and false otherwise.
 
     
-def countOccurrenceOfLetters(word):
-    occurrenceOfLetters = {}
-    for letter in word:
-        if letter in occurrenceOfLetters:
-            occurrenceOfLetters[letter] += 1
-        else:
-            occurrenceOfLetters[letter] = 1
-    return occurrenceOfLetters
+# def countOccurrenceOfLetters(word):
+#     occurrenceOfLetters = {}
+#     for letter in word:
+#         if letter in occurrenceOfLetters:
+#             occurrenceOfLetters[letter] += 1
+#         else:
+#             occurrenceOfLetters[letter] = 1
+#     return occurrenceOfLetters
 
-def closeStrings(word1: str, word2: str) -> bool:
-    # if their lengths aren't the same return false
-    if len(word1) != len(word2):
-         return False
+# def closeStrings(word1: str, word2: str) -> bool:
+#     # if their lengths aren't the same return false
+#     if len(word1) != len(word2):
+#          return False
 
-    freqWord1Dict = countOccurrenceOfLetters(word1)
-    freqWord2Dict = countOccurrenceOfLetters(word2)
+#     freqWord1Dict = countOccurrenceOfLetters(word1)
+#     freqWord2Dict = countOccurrenceOfLetters(word2)
 
-    return set(freqWord1Dict) == set(freqWord2Dict) and sorted(freqWord1Dict.values()) == sorted(freqWord2Dict.values())
+#     return set(freqWord1Dict) == set(freqWord2Dict) and sorted(freqWord1Dict.values()) == sorted(freqWord2Dict.values())
 
   
 
-
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        return len(word1) == len(word2) \
+            and set(word1) == set(word2) \
+            and Counter(Counter(word1).values()) == Counter(Counter(word2).values())
 
