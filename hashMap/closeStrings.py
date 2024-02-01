@@ -26,7 +26,7 @@ def closeStrings(word1: str, word2: str) -> bool:
     freqWord1Dict = countOccurrenceOfLetters(word1)
     freqWord2Dict = countOccurrenceOfLetters(word2)
 
-    return set(freqWord1Dict) == set(freqWord2Dict)
+    return set(freqWord1Dict) == set(freqWord2Dict) and sorted(freqWord1Dict.values()) == sorted(freqWord2Dict.values())
 
   
 
