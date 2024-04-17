@@ -18,9 +18,11 @@ def equalPairs(grid) -> int:
         rows[row] = 1 + rows.get(row, 0) 
 
     for c in range(numberOfCols):
-        col = tuple(grid[i, c] for i in range(numberOfRows)) 
-                    
-
+        col = tuple(grid[i][c] for i in range(numberOfRows)) 
+        # check if col exists as a key in the dictionary rows
+        count += rows.get(col, 0)
+    
+    return count
 
 
 
