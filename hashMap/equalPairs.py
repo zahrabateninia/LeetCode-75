@@ -8,7 +8,7 @@
 grid = [[3,2,1],[1,7,6],[2,7,7]]
 # Output should be 1
 def equalPairs(grid) -> int:
-    numberOfRows = len(grid)
+    numberOfRows = numberOfCols = len(grid)
     rows = {}
     count = 0
     for r in range(numberOfRows): # for every row in the grid
@@ -17,6 +17,9 @@ def equalPairs(grid) -> int:
         # set the value of each key in rows dict
         rows[row] = 1 + rows.get(row, 0) 
 
+    for c in range(numberOfCols):
+        col = tuple(grid[i, c] for i in range(numberOfRows)) 
+                    
 
 
 
