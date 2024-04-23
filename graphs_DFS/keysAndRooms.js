@@ -26,16 +26,41 @@
 * @return {boolean} 
 */
 
-var canVisitAllRooms = function(rooms){
-    let unlockedRoom = rooms[0]; // [1]
-    let keys = new Set(); // so we don't have duplicate keys 
-    // collect the keys
-    rooms.forEach((room) => room.forEach((key) => keys.add(key)))
-    return keys
+//  rooms are like nodes and keys are like edges
+function canVisitAllRooms(rooms) {
+    const visitedRooms = new Set(); // Set to keep track of visited rooms
+
+    // Define a DFS (Depth-First Search) function to visit rooms
+    function exploreRoom(roomIndex) {
+        // If the room has already been visited, exit
+        if (visitedRooms.has(roomIndex)) return;
+
+        // Mark the current room as visited
+        visitedRooms.add(roomIndex);
+
+        // Explore all the keys in the current room
+        for (const key of rooms[roomIndex]) {
+            exploreRoom(key); // Recursively explore the room corresponding to the key
+        }
+    }
+
+    // Start DFS from room 0
+    exploreRoom(0);
+
+    // Check if all rooms have been visited
+    return visitedRooms.size === rooms.length;
 }
 
-// test
+
+// example usage
 let rooms = [[1],[2],[3],[]];
 let rooms2 = [[1,3],[3,0,1],[2],[0]]
 console.log(canVisitAllRooms(rooms))
 console.log(canVisitAllRooms(rooms2))
+
+
+// My Note
+
+// In Python, the equivalent loop structure to for (variable of iterable) { statement } in JavaScript is the for loop with the in keyword.
+// The has() method of Set instances returns a boolean indicating whether an element with the specified value exists in this set or not
+// add() function in JavaScript is used to insert an element in the set.
