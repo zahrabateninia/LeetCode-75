@@ -1,4 +1,4 @@
-# LeetCode 75 Solutions
+# LeetCode Solutions
 
 This repository contains my solutions to some LeetCode questions , especially essential problems for coding interviews and practice. I've implemented, and am continuing to implement, all solutions in my favorite programming languages which are Python and JS :)
 
